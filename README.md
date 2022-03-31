@@ -94,3 +94,17 @@ Flink内存：2048-256-204.8=1587.2M
 框架内存：128M(堆内、堆外)
 Task堆内内存：1587.2-2*128-158.72-634.88=537.6M
 ```
+
+### 合理利用CPU资源
+> yarn的容量调度器默认情况下使用`DefaultResourceCalculator`分配策略，只根据内存调度资源，每个容器默认分配一个vcore，可以修改为`DominantResourceCalculator`,会综合考虑Cpu和内存的情况，在capcity-scheduler.xml中修改：
+```xml
+<property>
+    <name>yarn.scheduler.capacity.resource-calculator</name>
+    <!-- <value>org.apache.hadoop.yarn.util.resource.DefaultResourceCalculator</value> -->
+    <value>org.apache.hadoop.yarn.util.resource.DominantResourceCalculator</value>
+</property>
+```
+> 使用`DominantResourceCalculator`策略后一个slot默认分配一个vcore
+
+>使用`DominantResourceCalculator`策略后并指定容器vcore数  
+-Dyarn.containers.vcores=3（每个container分配3个vcore）
