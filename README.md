@@ -69,3 +69,18 @@ taskmanager.memory.network.min：默认为64MB
 taskmanager.memory.network.max：默认为1gb
 taskmanager.memory.network.fraction：默认为0.1
 ```
+
+#### 计算
+`taskmanager.memory.process.size: 2048m`
+```sh
+JVM Options:
+-XX:+UseG1GC
+-Xmx697932173
+-Xms697932173
+-XX:MaxDirectMemorySize=300647712
+-XX:MaxMetaspaceSize=268435456
+```
+- 使用G1GC来进行垃圾回收
+- 堆内存:约666M
+- 直接内存：约287M
+- 元空间内存：256M
