@@ -24,3 +24,10 @@ hs_err_pid*
 
 target
 out
+
+.idea
+*.iml
+.project
+.classpath
+.settings
+*.log
