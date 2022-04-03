@@ -36,7 +36,7 @@ public class RocksdbTuning {
         env.enableCheckpointing(TimeUnit.SECONDS.toMillis(3), CheckpointingMode.EXACTLY_ONCE);
 
         CheckpointConfig checkpointConfig = env.getCheckpointConfig();
-        checkpointConfig.setCheckpointStorage("hdfs://hadoop1:8020/flink-tuning/ck");
+        checkpointConfig.setCheckpointStorage("file:///opt/flink/ck");
         checkpointConfig.setMinPauseBetweenCheckpoints(TimeUnit.SECONDS.toMillis(3));
         checkpointConfig.setTolerableCheckpointFailureNumber(5);
         checkpointConfig.setCheckpointTimeout(TimeUnit.MINUTES.toMillis(1));
