@@ -108,3 +108,9 @@ Task堆内内存：1587.2-2*128-158.72-634.88=537.6M
 
 >使用`DominantResourceCalculator`策略后并指定容器vcore数  
 -Dyarn.containers.vcores=3（每个container分配3个vcore）
+
+
+## 反压处理
+
+## Job优化
+
